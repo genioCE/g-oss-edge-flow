@@ -1,0 +1,14 @@
+version: "3.9"
+services:
+  nodered:
+    image: nodered/node-red:latest
+    ports: ["1880:1880"]
+    volumes: ["nodered:/data"]
+  nifi:
+    image: apache/nifi:1.27.0
+    environment: ["NIFI_WEB_HTTP_PORT=8081"]
+    ports: ["8081:8081"]
+  telegraf:
+    image: telegraf:1.30
+volumes:
+  nodered:
